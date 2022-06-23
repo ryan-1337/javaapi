@@ -29,7 +29,7 @@ public class ApiController {
 
     @PutMapping("/edit")
     public Pokemon editPokemon(@RequestBody Pokemon pokemon) {
-        return this.pokemon.set(pokemon.getId(), pokemon);
+        this.pokemon.set
     }
 
     @DeleteMapping("delete")

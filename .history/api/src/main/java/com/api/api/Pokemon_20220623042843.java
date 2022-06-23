@@ -36,11 +36,7 @@ public class Pokemon {
     }
 
    public Integer getId() {
-        return id;
-    }
-
-   public void setId(Integer id) {
-        this.id = id;
+        return hp;
     }
 
     public void setHp(Integer hp) {

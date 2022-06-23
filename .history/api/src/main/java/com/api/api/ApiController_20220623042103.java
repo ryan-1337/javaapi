@@ -28,8 +28,9 @@ public class ApiController {
     }
 
     @PutMapping("/edit")
-    public Pokemon editPokemon(@RequestBody Pokemon pokemon) {
-        return this.pokemon.set(pokemon.getId(), pokemon);
+    public Pokemon editPokemon(@RequestBody Pokemon pokemonName) {
+              this.pokemon.stream().filter(pokemon -> pokemon.getName().equals(pokemonName.getName())).findFirst().get().setName(pokemonName.getName());
+        return this.pokemon.stream().filter(pokemon -> pokemon.getName().equals(pokemonName.getName())).findFirst().get();
     }
 
     @DeleteMapping("delete")

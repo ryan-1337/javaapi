@@ -16,7 +16,6 @@ PUT http://localhost:8080/edit
 Content-type: application/json
 
 { 
-    "id": 1,
     "name": "salam",
     "hp": 100,
     "type": "fire"
