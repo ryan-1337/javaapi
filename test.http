@@ -12,16 +12,15 @@ GET http://localhost:8080/pokemon
 
 
 ###
-PUT http://localhost:8080/edit
+PUT http://localhost:8080/edit/4
 Content-type: application/json
 
 { 
-    "id": 1,
     "name": "salam",
     "hp": 100,
     "type": "fire"
 }
 
 ###
-DELETE http://localhost:8080/delete
+DELETE http://localhost:8080/delete/1
 
