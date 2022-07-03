@@ -3,7 +3,6 @@ package com.api.api;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,7 +21,7 @@ public class ApiController {
 
     @GetMapping("/pokemon")
     public List<Pokemon> getAllFullLifePokemon() {
-        return this.pokemon.stream().filter(pokemon -> pokemon.getHp().equals(100)).collect(Collectors.toList());
+        return this.pokemon.stream().filter(pokemon -> pokemon.getHp().equals(100)).toList();
     }
 
     @PostMapping("/new")
