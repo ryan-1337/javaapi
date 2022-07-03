@@ -35,9 +35,7 @@ public class ApiController {
     public ResponseEntity<Pokemon> editPokemon(@RequestBody Pokemon pokemon, @PathVariable Integer id) {
         Optional<Pokemon> opt = this.pokemon.stream().filter(obj -> obj.getId().equals(id)).findFirst();
         if(opt.isPresent()) {
-            opt.get().setName(pokemon.getName());
-            opt.get().setHp(pokemon.getHp());
-            opt.get().setType(pokemon.getType());
+            new Pokemon(opt.get().getName(), opt.get().getHp(), opt.get().getType());
             return new ResponseEntity<Pokemon>(HttpStatus.ACCEPTED);
         } else {
             return new ResponseEntity<Pokemon>(HttpStatus.NOT_FOUND);

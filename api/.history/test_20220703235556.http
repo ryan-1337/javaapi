@@ -1,0 +1,26 @@
+POST http://localhost:8080/new
+Content-type: application/json
+
+{ 
+    "name": "salameche",
+    "hp": 100,
+    "type": "fire"
+}
+
+###
+GET http://localhost:8080/pokemon
+
+
+###
+PUT http://localhost:8080/edit/4
+Content-type: application/json
+
+{ 
+    "name": "salam",
+    "hp": 100,
+    "type": "fire"
+}
+
+###
+DELETE http://localhost:8080/delete/1
+

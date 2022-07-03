@@ -2,7 +2,6 @@ package com.api.api;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collector;
 
 import org.springframework.http.HttpStatus;
@@ -31,17 +30,9 @@ public class ApiController {
         return pokemon;
     }
 
-    @PutMapping("/edit/{id}")
-    public ResponseEntity<Pokemon> editPokemon(@RequestBody Pokemon pokemon, @PathVariable Integer id) {
-        Optional<Pokemon> opt = this.pokemon.stream().filter(obj -> obj.getId().equals(id)).findFirst();
-        if(opt.isPresent()) {
-            opt.get().setName(pokemon.getName());
-            opt.get().setHp(pokemon.getHp());
-            opt.get().setType(pokemon.getType());
-            return new ResponseEntity<Pokemon>(HttpStatus.ACCEPTED);
-        } else {
-            return new ResponseEntity<Pokemon>(HttpStatus.NOT_FOUND);
-        }
+    @PutMapping("/edit")
+    public Pokemon editPokemon(@RequestBody Pokemon pokemon) {
+        return this.pokemon.set(pokemon.getId(), pokemon);
     }
 
     @DeleteMapping("/delete/{id}")

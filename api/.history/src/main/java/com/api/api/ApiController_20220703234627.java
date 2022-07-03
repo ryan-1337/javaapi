@@ -32,16 +32,11 @@ public class ApiController {
     }
 
     @PutMapping("/edit/{id}")
-    public ResponseEntity<Pokemon> editPokemon(@RequestBody Pokemon pokemon, @PathVariable Integer id) {
+    public Pokemon editPokemon(@RequestBody Pokemon pokemon, @PathVariable Integer id) {
         Optional<Pokemon> opt = this.pokemon.stream().filter(obj -> obj.getId().equals(id)).findFirst();
-        if(opt.isPresent()) {
-            opt.get().setName(pokemon.getName());
-            opt.get().setHp(pokemon.getHp());
-            opt.get().setType(pokemon.getType());
-            return new ResponseEntity<Pokemon>(HttpStatus.ACCEPTED);
-        } else {
-            return new ResponseEntity<Pokemon>(HttpStatus.NOT_FOUND);
-        }
+        if(opt.isPresent())
+            new Pokemon(opt.get().getName(), opt.get().getHp(), opt.get().getName());
+        return null;
     }
 
     @DeleteMapping("/delete/{id}")
